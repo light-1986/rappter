@@ -1,0 +1,22 @@
+{
+  "name": "rappter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "rappter": "index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "commander": "^5.1.0",
+    "cross-spawn": "^7.0.2",
+    "fs-extra": "^9.0.0",
+    "quicktype": "^15.0.223"
+  }
+}
