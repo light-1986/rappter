@@ -9,5 +9,14 @@
     "limit": 5
 }
 ```
+下载项目到本地目录
+
+```
+cd rappter
+npm link
+
+cd demo
+npm link rappter
+```
 
 然后在项目的根目录下执行```rappter interface```
