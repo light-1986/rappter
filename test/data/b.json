@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "title": "Wrapper<List<UrlMonitorPlatformResVO>>",
+    "required": [],
+    "description": "Wrapper<List<UrlMonitorPlatformResVO>> :Wrapper",
+    "properties": {
+        "code": {
+            "type": "String",
+            "description": "编号."
+        },
+        "msg": {
+            "type": "String",
+            "description": "信息."
+        },
+        "data": {
+            "type": "array",
+            "description": "结果数据 ,UrlMonitorPlatformResVO",
+            "items": {
+                "type": "object",
+                "description": "结果数据 ,UrlMonitorPlatformResVO",
+                "properties": {
+                    "platformName": {
+                        "type": "String",
+                        "description": "平台名称"
+                    },
+                    "platformType": {
+                        "type": "int",
+                        "description": "平台Id"
+                    }
+                },
+                "required": []
+            }
+        }
+    }
+}

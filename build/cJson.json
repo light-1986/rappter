@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "title": "Wrapper<UrlMonitorTaskResVO>",
+    "required": [],
+    "description": "Wrapper<UrlMonitorTaskResVO> :Wrapper",
+    "properties": {
+        "code": {
+            "type": "string",
+            "description": "编号.",
+            "mock": {
+                "mock": "@string"
+            }
+        },
+        "msg": {
+            "type": "string",
+            "description": "信息.",
+            "mock": {
+                "mock": "@string"
+            }
+        },
+        "data": {
+            "type": "object",
+            "description": "结果数据 ,UrlMonitorTaskResVO",
+            "properties": {
+                "taskId": {
+                    "type": "string",
+                    "description": "任务ID"
+                },
+                "mediaTitle": {
+                    "type": "string",
+                    "description": "标题"
+                },
+                "platformName": {
+                    "type": "string",
+                    "description": "平台名称"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "昵称所属KOL"
+                },
+                "mediaCreatedAt": {
+                    "type": "number",
+                    "description": "链接发布时间",
+                    "mock": {
+                        "mock": "@timestamp"
+                    }
+                },
+                "createdAt": {
+                    "type": "number",
+                    "description": "任务创建时间",
+                    "mock": {
+                        "mock": "@timestamp"
+                    }
+                },
+                "monitorStatus": {
+                    "type": "number",
+                    "description": "任务状态",
+                    "mock": {
+                        "mock": "@integer"
+                    }
+                },
+                "monitorStatusDesc": {
+                    "type": "string",
+                    "description": "任务状态描述"
+                }
+            },
+            "required": []
+        }
+    }
+}

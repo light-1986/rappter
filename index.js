@@ -21,35 +21,35 @@ const { version } = { version: '0.0.1' }
 // console.log("-----", process.cwd("/etc"), path.resolve(__dirname, "etc/host"), __dirname)
 // return;
 const actionsMap = {
-    create: {
-        description: 'crate project',
-        alias: 'cr',
-        examples: [
-            'wby create <template-name>'
-        ],
-    },
-    config: {
-        description: 'config info',
-        alias: 'c',
-        examples: [
-            'wby config get <k>',
-            'wby config set <k> <v>'
-        ]
-    },
-    build: {
-        description: 'build',
-        alias: 'bu',
-        examples: [
-            'wby build'
-        ]
-    },
-    start: {
-        description: 'start',
-        alias: 's',
-        examples: [
-            'wby start'
-        ]
-    },
+    // create: {
+    //     description: 'crate project',
+    //     alias: 'cr',
+    //     examples: [
+    //         'wby create <template-name>'
+    //     ],
+    // },
+    // config: {
+    //     description: 'config info',
+    //     alias: 'c',
+    //     examples: [
+    //         'wby config get <k>',
+    //         'wby config set <k> <v>'
+    //     ]
+    // },
+    // build: {
+    //     description: 'build',
+    //     alias: 'bu',
+    //     examples: [
+    //         'wby build'
+    //     ]
+    // },
+    // start: {
+    //     description: 'start',
+    //     alias: 's',
+    //     examples: [
+    //         'wby start'
+    //     ]
+    // },
     interface: {
         description: '生成接口约束文件.ts',
         alias: 'inter',

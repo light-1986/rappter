@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "required": [
+        "platformType",
+        "mediaUrl"
+    ],
+    "title": "UrlMonitorTaskReqVO",
+    "description": "UrlMonitorTaskReqVO :UrlMonitorTaskReqVO",
+    "properties": {
+        "platformType": {
+            "type": "Number",
+            "description": "平台类型"
+        },
+        "mediaUrl": {
+            "type": "String",
+            "description": "媒体链接"
+        }
+    }
+}
