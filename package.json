@@ -18,10 +18,7 @@
     "cross-spawn": "^7.0.2",
     "fs-extra": "^9.0.0",
     "json-format": "^1.0.1",
-    "json-formatter-js": "^2.3.4",
-    "prettyjson": "^1.2.1",
-    "quicktype": "^15.0.223",
-    "stringify-object": "^3.3.0"
+    "quicktype": "^15.0.223"
   },
   "devDependencies": {
     "jest": "^26.0.1"
