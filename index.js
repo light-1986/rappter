@@ -56,6 +56,13 @@ const actionsMap = {
         examples: [
             'rappter interface'
         ]
+    },
+    actions: {
+        description: '生成action creator.ts',
+        alias: 'act',
+        examples: [
+            'rappter actions'
+        ]
     }
 }
 
