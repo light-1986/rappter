@@ -4,11 +4,12 @@ const jsonFormat = require('json-format');
  * @param {*} data schema
  * 递归处理type不支持的数据
  */
+
 function deal(data) {
     if (data.type == 'object') {
         let _pro = data.properties;
         for (const key in _pro) {
-            if (_pro.hasOwnProperty(key)) {
+            if (Object.prototype.hasOwnProperty.call(_pro, key)) {
                 const element = _pro[key];
                 if (element.type === 'String') {
                     element.type = 'string'
@@ -34,7 +35,7 @@ function deal(data) {
             }
         }
     } else if (data.type === 'array') {
-        deal(element.items)
+        deal(data.items)
     }
     return data;
 }

@@ -1,8 +1,5 @@
 #!/usr/bin/env node
 
-
-const spawn = require('cross-spawn');
-
 // Spawn NPM asynchronously
 // const child = spawn('npm', ['list', '-g', '-depth', '0'], { stdio: 'inherit' });
 
@@ -63,12 +60,19 @@ const actionsMap = {
         examples: [
             'rappter actions'
         ]
+    },
+    reducer: {
+        description: '生成reducer creator.ts',
+        alias: 'act',
+        examples: [
+            'rappter reducer'
+        ]
     }
 }
 
 Object.keys(actionsMap).forEach((key) => {
     const action = actionsMap[key]
-    console.log(action)
+    // console.log(action)
     program
         .command(key)
         .alias(action.alias)
@@ -78,8 +82,8 @@ Object.keys(actionsMap).forEach((key) => {
                 console.log(action.description)
             } else {
 
-                console.log("===", process.argv.slice(3))
-                require(path.resolve(__dirname, key))(...process.argv.slice(3))
+                // console.log("===", process.argv.slice(3))
+                require(path.resolve(__dirname, "scripts", key))(...process.argv.slice(3))
             }
         });
 })

@@ -2,7 +2,7 @@ const fs = require("fs-extra");
 const axios = require("axios");
 const spawn = require('cross-spawn');
 const path = require('path');
-const dealSchema = require('./dealSchema')
+const dealSchema = require('../util/dealSchema')
 const package = require(path.join(path.resolve(), 'package.json'))
 const rappterConfig = package.rappter || {};
 
@@ -21,8 +21,7 @@ const jsonPaths = {
     req_body_other: []
 }
 
-let i = 0,
-    count = limit,
+let count = limit,
     ST = new Date().getTime();    // 启动时间，计算执行总时长
 
 async function entry() {
@@ -41,7 +40,7 @@ async function entry() {
         });
     } else {
         const res = await axios.get(ajaxUrl); //.then((res) => {})
-        const { data, msg, errcode } = res.data;
+        const { data } = res.data;
         const { list } = data;
         count = list.length;
         const iterable = [];
@@ -51,7 +50,7 @@ async function entry() {
                 iterable.push(start(getInterfaceUrlById(host, token, element._id)));
             });
         }
-        Promise.all(iterable).then((values) => {
+        Promise.all(iterable).then(() => {
             transSchemaToTs(jsonPaths)
         })
     }
@@ -63,7 +62,7 @@ async function entry() {
 function start(url) {
     return axios.get(url).then((res) => {
 
-        const { data, msg, errcode } = res.data;
+        const { data } = res.data;
         let { req_body_other, res_body } = data;
 
 
@@ -113,11 +112,6 @@ function transSchemaToTs(jsonPaths) {
             generateTs(path, filename)
         })
     })
-}
-
-//后续在增加
-function generateAction() {
-
 }
 
 module.exports = entry;
