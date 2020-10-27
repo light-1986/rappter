@@ -1,0 +1,137 @@
+{
+    "type": "object",
+    "description": "结果数据 ,UrlMonitorTaskInfoResVO",
+    "properties": {
+        "baseInfo": {
+            "type": "object",
+            "description": "任务基础数据 ,MonitorTaskBaseInfoResVO",
+            "properties": {
+                "taskId": {
+                    "type": "string",
+                    "description": "任务ID"
+                },
+                "mediaTitle": {
+                    "type": "string",
+                    "description": "标题"
+                },
+                "platformId": {
+                    "type": "number",
+                    "description": "平台Id"
+                },
+                "platformName": {
+                    "type": "string",
+                    "description": "平台名称"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "昵称所属KOL"
+                },
+                "mediaCreatedAt": {
+                    "type": "number",
+                    "description": "链接发布时间"
+                },
+                "createdAt": {
+                    "type": "number",
+                    "description": "任务创建时间"
+                },
+                "mediaUrl": {
+                    "type": "string",
+                    "description": "文章（视频）链接"
+                },
+                "mediaCoverUrl": {
+                    "type": "string",
+                    "description": "封面地址"
+                },
+                "monitorType": {
+                    "type": "number",
+                    "description": "监控类型MonitorTypeEnum"
+                },
+                "monitorTypeDesc": {
+                    "type": "string",
+                    "description": "监控类型转义"
+                },
+                "monitorInterval": {
+                    "type": "number",
+                    "description": "频率单位分钟"
+                },
+                "monitorIntervalDesc": {
+                    "type": "string",
+                    "description": "频率转义"
+                },
+                "duration": {
+                    "type": "number",
+                    "description": "监控时长单位分钟"
+                },
+                "durationDesc": {
+                    "type": "string",
+                    "description": "监控时长转义"
+                },
+                "monitorStatus": {
+                    "type": "number",
+                    "description": "任务状态"
+                },
+                "monitorStatusDesc": {
+                    "type": "string",
+                    "description": "任务状态描述"
+                },
+                "startAt": {
+                    "type": "number",
+                    "description": "任务开始时间"
+                },
+                "endAt": {
+                    "type": "number",
+                    "description": "任务结束时间"
+                }
+            },
+            "required": []
+        },
+        "dataOutline": {
+            "type": "array",
+            "description": "数据概要 ,MonitorTaskDataOutlineResVO",
+            "items": {
+                "type": "object",
+                "description": "数据概要 ,MonitorTaskDataOutlineResVO",
+                "properties": {
+                    "title": {
+                        "type": "number",
+                        "description": "标题1积累量2增量"
+                    },
+                    "mediaBarrageCount": {
+                        "type": "number",
+                        "description": "弹幕数"
+                    },
+                    "mediaIncomeCount": {
+                        "type": "number",
+                        "description": "硬币数"
+                    },
+                    "mediaCollectsCount": {
+                        "type": "number",
+                        "description": "收藏数"
+                    },
+                    "mediaRepostCount": {
+                        "type": "number",
+                        "description": "转发分享数"
+                    },
+                    "mediaCommentCount": {
+                        "type": "number",
+                        "description": "评论数"
+                    },
+                    "mediaLikeCount": {
+                        "type": "number",
+                        "description": "点赞数"
+                    },
+                    "mediaPlayCount": {
+                        "type": "number",
+                        "description": "播放数"
+                    },
+                    "planAt": {
+                        "type": "number",
+                        "description": "抓取时间"
+                    }
+                },
+                "required": []
+            }
+        }
+    },
+    "required": []
+}

@@ -18,9 +18,11 @@
     "cross-spawn": "^7.0.2",
     "fs-extra": "^9.0.0",
     "json-format": "^1.0.1",
-    "quicktype": "^15.0.223"
+    "quicktype": "^15.0.223",
+    "quicktype-core": "^6.0.69"
   },
   "devDependencies": {
+    "eslint": "^7.12.1",
     "jest": "^26.0.1"
   },
   "jest": {

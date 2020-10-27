@@ -12,7 +12,7 @@ const spawn = require('cross-spawn');
 //quicktype --just-types -o 129_req_body_other.ts --src-lang schema 129_req_body_other.json
 // const result = spawn.sync('quicktype', ['--just-types', '-o', '129_req_body_other.ts', '--src-lang', 'schema', '129_req_body_other.json'])
 
-// console.log("result ", result)
+console.log("result ")
 const program = require('commander');
 const path = require('path')
 
