@@ -6,45 +6,56 @@ const {
     JSONSchemaInput,
     JSONSchemaStore,
 } = require("quicktype-core");
+
+function dealBaseType(data) {
+    if (data.type === 'String') {
+        data.type = 'string'
+    } else {
+        switch (data.type.toLowerCase()) {
+            case "int":
+            case "int[]":
+            case "integer":
+            case "date":
+            case "long":
+            case "number":
+                data.type = 'number'
+                break;
+
+            default:
+                break;
+        }
+    }
+    if (data.mock) {
+        delete data.mock
+    }
+}
 /**
  * 
  * @param {*} data schema
  * 递归处理type不支持的数据
  */
 function deal(data) {
+    if (!data) {
+        return {};
+    }
     if (data.type == 'object') {
         let _pro = data.properties;
         for (const key in _pro) {
             if (_pro.hasOwnProperty(key)) {
                 const element = _pro[key];
-                if (element.mock) {
-                    delete element.mock
-                }
-                if (element.type === 'String') {
-                    element.type = 'string'
-                } else if (element.type === 'object') {
+                if (element.type === 'object') {
                     deal(element)
                 } else if (element.type === 'array') {
                     deal(element.items)
                 } else {
-                    switch (element.type.toLowerCase()) {
-                        case "int":
-                        case "int[]":
-                        case "integer":
-                        case "date":
-                        case "long":
-                        case "number":
-                            element.type = 'number'
-                            break;
-
-                        default:
-                            break;
-                    }
+                    dealBaseType(element)
                 }
             }
         }
     } else if (data.type === 'array') {
-        deal(element.items)
+        deal(data.items)
+    } else {
+        dealBaseType(data)
     }
     return data;
 }
@@ -73,22 +84,6 @@ function transformationForReqQuery(req_query = []) {
 function combineSchema(data) {
     let reqSchema, resSchema;
     let regVo = /\<(\w+)\>/;
-    const _req_query = [{
-        required: '1',
-        _id: '5f969e7864f1ac6a3ebf3edc',
-        name: 'taskId',
-        example: 'String',
-        desc: '(String)'
-    },
-    {
-        required: '1',
-        _id: '5f969e7864f1ac1cd5bf3edb',
-        name: 'age',
-        example: 'number',
-        desc: ''
-    }];
-
-
 
     let { method, req_body_other, res_body, req_query, status, title, path, up_time, description } = data;
     if (method.toLowerCase() == 'get') {
@@ -99,17 +94,20 @@ function combineSchema(data) {
     }
     resSchema = JSON.parse(res_body);
     ;
-    console.log(regVo.exec(title), path)
-    const voKey = (regVo.exec(title) || []).pop()
-        || path.split("/").pop()
+
+
+    //这里因为后端title返回的vo存在重复的现象，所以使用文件名作为接口唯一标示
+    // const voKey = (regVo.exec(title) || []).pop() 
+    //     || path.split("/").pop()
+    const voKey = path.split("/").pop();
     return {
         "type": "object",
         "title": title,
         "required": [],
         "description": description,
         "properties": {
-            [voKey + 'Req']: deal(reqSchema),
-            [voKey + 'Res']: deal(resSchema.properties.data)
+            ['I' + voKey + 'Req']: deal(reqSchema),
+            ['I' + voKey + 'Res']: deal(resSchema.properties.data)
         }
     }
 }
@@ -182,23 +180,16 @@ async function quicktypeJSONSchema(targetLanguage, typeName, jsonSchemaString, j
         }
     });
 }
+function writeIndex() {
+    const data = {
 
-async function main() {
-    const { lines: swiftPerson } = await quicktypeJSON(
-        "ts",
-        "Person",
-        jsonSchemaString
-    );
-    console.log(swiftPerson.join("\n"));
-
-    // const { lines: pythonPerson } = await quicktypeJSONSchema(
-    //     "ts",
-    //     "Person",
-    //     jsonSchemaString
-    // );
-    // console.log(pythonPerson.join("\n"));
+    }
+    writeFile(`${realPath}/${dataReplaceKey}.ts`, lines.join("\n"))
 }
-// main();
+
+function writeFile(path, content) {
+    fs.outputFileSync(path, content, 'utf-8')
+}
 exports.quicktypeJSONSchema = quicktypeJSONSchema;
 exports.quicktypeJSON = quicktypeJSON;
 exports.combineSchema = combineSchema

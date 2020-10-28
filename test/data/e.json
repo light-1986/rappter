@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "required": [
+        "platformId",
+        "mediaUrl"
+    ],
+    "title": "UrlMonitorTaskReqVO",
+    "description": "UrlMonitorTaskReqVO :UrlMonitorTaskReqVO",
+    "properties": {
+        "platformId": {
+            "type": "Integer",
+            "description": "平台类型",
+            "mock": {
+                "mock": "@integer"
+            }
+        },
+        "mediaUrl": {
+            "type": "String",
+            "description": "媒体链接",
+            "mock": {
+                "mock": "@string"
+            }
+        }
+    }
+}

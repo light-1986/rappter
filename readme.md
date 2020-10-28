@@ -11,3 +11,5 @@
 ```
 
 然后在项目的根目录下执行```rappter interface```
+
+配合IDEA编辑器使用更好https://github.com/diwand/YapiIdeaUploadPlugin

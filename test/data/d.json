@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "title": "Wrapper<UrlMonitorTaskResVO>",
+    "required": [],
+    "description": "Wrapper<UrlMonitorTaskResVO> :Wrapper",
+    "properties": {
+        "code": {
+            "type": "String",
+            "description": "编号.",
+            "mock": {
+                "mock": "1000"
+            }
+        },
+        "msg": {
+            "type": "String",
+            "description": "信息.",
+            "mock": {
+                "mock": "@string"
+            }
+        },
+        "data": {
+            "type": "object",
+            "description": "结果数据 ,UrlMonitorTaskResVO",
+            "properties": {
+                "mediaTitle": {
+                    "type": "String",
+                    "description": "标题",
+                    "mock": {
+                        "mock": "@string"
+                    }
+                },
+                "platformId": {
+                    "type": "integer",
+                    "mock": {
+                        "mock": "@integer"
+                    },
+                    "description": "平台Id"
+                },
+                "platformName": {
+                    "type": "String",
+                    "description": "平台名称",
+                    "mock": {
+                        "mock": "@string"
+                    }
+                },
+                "userName": {
+                    "type": "String",
+                    "description": "昵称所属KOL",
+                    "mock": {
+                        "mock": "@string"
+                    }
+                },
+                "mediaCreatedAt": {
+                    "type": "Date",
+                    "description": "链接发布时间",
+                    "mock": {
+                        "mock": "@timestamp"
+                    }
+                },
+                "uuid": {
+                    "type": "string",
+                    "mock": {
+                        "mock": "@string"
+                    },
+                    "description": "标识"
+                }
+            }
+        }
+    }
+}

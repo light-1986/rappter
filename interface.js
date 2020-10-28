@@ -46,6 +46,10 @@ async function entry() {
 
     }
 
+    //fs.removeSync
+    const types_path = path.join(path.resolve(), 'src/types');
+    fs.removeSync(`${types_path}/index.ts`)
+
 }
 
 function start(url) {
@@ -56,6 +60,7 @@ function start(url) {
         const dataReplaceKey = _path.pop();
         const realPath = path.join(path.resolve(), 'src/types', _path.join("/"));
         const __data = dealSchema.combineSchema(data);
+        fs.outputFileSync(`${realPath}/${dataReplaceKey}.json`, JSON.stringify(__data), 'utf-8')
         const { lines } = await dealSchema.quicktypeJSONSchema(
             "ts",
             dataReplaceKey,
@@ -63,6 +68,12 @@ function start(url) {
         );
 
         fs.outputFileSync(`${realPath}/${dataReplaceKey}.ts`, lines.join("\n"), 'utf-8')
+
+
+        const types_path = path.join(path.resolve(), 'src/types');
+
+        let content = `export * from '.${data.path}';\n`;
+        fs.outputFileSync(`${types_path}/index.ts`, content, { encoding: 'utf-8', flag: 'a' })
     })
 }
 
